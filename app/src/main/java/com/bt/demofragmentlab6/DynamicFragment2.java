@@ -2,13 +2,17 @@ package com.bt.demofragmentlab6;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentResultListener;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.FrameLayout;
+import android.widget.TextView;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -16,6 +20,8 @@ import android.widget.FrameLayout;
  * create an instance of this fragment.
  */
 public class DynamicFragment2 extends Fragment {
+
+    TextView tvResult;
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -55,12 +61,24 @@ public class DynamicFragment2 extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
+        //nhận dữ liệu từ nơi khác gửi qua
+        FragmentManager fm = getChildFragmentManager();
+        fm.setFragmentResultListener("keyMain", this, new FragmentResultListener() {
+            @Override
+            public void onFragmentResult(@NonNull String requestKey, @NonNull Bundle result) {
+                String name = result.getString("name");
+                 tvResult.setText("hello" + name);
+            }
+        });
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_dynamic2, container, false);
+        View view = inflater.inflate(R.layout.fragment_dynamic2, container, false);
+        tvResult = (TextView) view.findViewById(R.id.tvResult);
+        return view;
     }
+
 }

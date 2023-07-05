@@ -73,6 +73,7 @@ public class DynamicFragment1 extends Fragment {
             @Override
             public void onClick(View v) {
                 Bundle bundle = new Bundle();
+                //đẩy dữ liệu tn name dạng string
                 bundle.putString("name", edtName.getText().toString());
                 FragmentManager fm = getParentFragmentManager();
                 fm.setFragmentResult("keyMain", bundle);

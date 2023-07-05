@@ -12,6 +12,7 @@
         android:layout_height="match_parent"
         android:textSize="16pt"
         android:textColor="#FF0000"
-        android:text="@string/hello_blank_fragment" />
+        android:text="@string/hello_blank_fragment"
+        android:id="@+id/tvResult"/>
 
 </FrameLayout>
