@@ -3,23 +3,19 @@ package com.bt.demofragmentlab6;
 import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
-import androidx.fragment.app.FragmentManager;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
-import android.widget.EditText;
+import android.widget.FrameLayout;
 
 /**
  * A simple {@link Fragment} subclass.
- * Use the {@link DynamicFragment1#newInstance} factory method to
+ * Use the {@link DynamicFragment2#newInstance} factory method to
  * create an instance of this fragment.
  */
-public class DynamicFragment1 extends Fragment {
-
-    Button btnSend;
-    EditText edtName;
+public class DynamicFragment2 extends Fragment {
 
     // TODO: Rename parameter arguments, choose names that match
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
@@ -30,7 +26,7 @@ public class DynamicFragment1 extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    public DynamicFragment1() {
+    public DynamicFragment2() {
         // Required empty public constructor
     }
 
@@ -40,11 +36,11 @@ public class DynamicFragment1 extends Fragment {
      *
      * @param param1 Parameter 1.
      * @param param2 Parameter 2.
-     * @return A new instance of fragment DynamicFragment1.
+     * @return A new instance of fragment DynamicFragment2.
      */
     // TODO: Rename and change types and number of parameters
-    public static DynamicFragment1 newInstance(String param1, String param2) {
-        DynamicFragment1 fragment = new DynamicFragment1();
+    public static DynamicFragment2 newInstance(String param1, String param2) {
+        DynamicFragment2 fragment = new DynamicFragment2();
         Bundle args = new Bundle();
         args.putString(ARG_PARAM1, param1);
         args.putString(ARG_PARAM2, param2);
@@ -65,19 +61,6 @@ public class DynamicFragment1 extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        View view = inflater.inflate(R.layout.fragment_dynamic1, container, false);
-        //gọi hàm add control và add Event
-        edtName = (EditText) view.findViewById(R.id.edtName);
-        btnSend = (Button) view.findViewById(R.id.btnSend);
-        btnSend.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Bundle bundle = new Bundle();
-                bundle.putString("name", edtName.getText().toString());
-                FragmentManager fm = getParentFragmentManager();
-                fm.setFragmentResult("keyMain", bundle);
-            }
-        });
-        return view;
+        return inflater.inflate(R.layout.fragment_dynamic2, container, false);
     }
 }

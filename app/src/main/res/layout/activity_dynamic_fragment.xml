@@ -12,14 +12,14 @@
         android:orientation="vertical">
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/btnFrag1"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:text="Fragment 1" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/btnFrag2"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center"
